@@ -1,0 +1,19 @@
+#!/usr/bin/env php
+<?php
+// bootstrap
+require dirname(__DIR__) . '/bootstrap.php';
+
+// start application
+$app = new Crasivo\Bitrix\Console\Application();
+
+try {
+    $app->init();
+    $app->run();
+    $status = 0; // success
+} catch (\Throwable $exception) {
+    $status = 1; // error
+    echo $exception->getMessage();
+    echo $exception->getTraceAsString();
+} finally {
+    $app->finish($status);
+}

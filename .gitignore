@@ -1,0 +1,16 @@
+# IDE
+/.idea
+/.vscode
+
+# Composer
+/.composer
+/composer.lock
+/composer.phar
+/vendor
+
+# Hidden
+/tmp
+
+# Misc
+.DS_Store
+Thumbs.db
