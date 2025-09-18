@@ -26,7 +26,7 @@ class Application extends \Symfony\Component\Console\Application
             $version = (string)$_ENV['APP_VERSION'];
         }
 
-        parent::__construct($name ?? '1C-Bitrix', $version ?? SM_VERSION);
+        parent::__construct($name ?? '1C-Bitrix', $version ?? constant('SM_VERSION'));
         if (class_exists(BitrixApplication::class)) {
             $this->bitrixApplication = BitrixApplication::getInstance();
         }
