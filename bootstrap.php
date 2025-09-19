@@ -49,6 +49,8 @@ if (file_exists($_SERVER['DOCUMENT_ROOT'] . '/bitrix/modules/main/include/prolog
 defined('BX_DIR_PERMISSIONS') || define('BX_DIR_PERMISSIONS', 0755);
 defined('BX_FILE_PERMISSION') || define('BX_FILE_PERMISSION', 0664);
 defined('SM_VERSION') || define('SM_VERSION', '0.0.0');
+defined('SM_VERSION_DATE') || define('SM_VERSION_DATE', '1970-01-01 00:00:00');
+defined('START_EXEC_TIME') || define('START_EXEC_TIME', microtime(true));
 
 // require composer
 if (!class_exists('\\Crasivo\\Bitrix\\Console\\Application') && file_exists($_SERVER['APP_ROOT'] . '/vendor/autoload.php')) {

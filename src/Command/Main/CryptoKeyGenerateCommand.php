@@ -62,8 +62,9 @@ class CryptoKeyGenerateCommand extends Command
     {
         $envFile = $_SERVER['APP_ROOT'] . '/.env';
         $envContent = file_get_contents($envFile);
-        $defined = false !== preg_match('/^APP\_CRYPTO\_KEY\=(.*)$/m', $envContent);
+        $defined = false !== preg_match('/^APP\_CRYPTO\_KEY\=(.*)$/m', $envContent, $matches);
 
+        // check var exists
         if (!$defined) {
             $envContent = PHP_EOL . 'APP_CRYPTO_KEY=' . $key . PHP_EOL;
             if (false === file_put_contents($envFile, $envContent)) {
@@ -72,7 +73,9 @@ class CryptoKeyGenerateCommand extends Command
 
             return;
         }
-        if (!$replace) {
+
+        // check empty value
+        if (!$replace && trim((string)$matches[1]) !== '') {
             return;
         }
 

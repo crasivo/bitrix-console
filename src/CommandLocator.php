@@ -67,7 +67,8 @@ class CommandLocator implements ContainerInterface
     public function load(): void
     {
         $this->loadInternal();
-        if ($GLOBALS['APPLICATION']) {
+        // check prolog global var
+        if (isset($GLOBALS['APPLICATION'])) {
             $this->loadFromConfig();
             $this->loadFromInstalledModules();
         }
